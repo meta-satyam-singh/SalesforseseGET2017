@@ -1,0 +1,28 @@
+<apex:page controller="AccountPaginationController" >
+    <apex:form >
+        <apex:pageblock >
+            <apex:pageBlockSection >
+                Billing City <apex:inputText value="{!getBillingCitystring}" id="BillingCity" />
+                Billing State <apex:inputText value="{!getBillingStatestring}" id="BillingState"/>
+                Billing Country <apex:inputText value="{!getBillingCountrystring}" id="BillingCountry"/>
+                <apex:commandButton action="{!searchRecords}" value="Search" id="theSearch"/>
+            </apex:pageBlockSection>
+            
+            <apex:outputPanel rendered="{!IF(createAccountList!=null, true, false)}">
+                <apex:pageBlocktable value="{!createAccountList}" var="records"> 
+                    <apex:column value="{!records.name}" headerValue="Name"/>
+                    <apex:column value="{!records.BillingCity}" headerValue="Billing City"/>
+                    <apex:column value="{!records.BillingState}" headerValue="Billing State"/>
+                    <apex:column value="{!records.BillingCountry}" headerValue="Billing Country"/>
+                </apex:pageBlocktable>
+            </apex:outputPanel>
+             <apex:outputtext styleclass="detailText" value="Page {!pageNumber} of {!TotalPages}" rendered="{!TotalPages > 0}"></apex:outputtext>
+        <apex:panelGrid columns="4"> 
+            <apex:commandbutton disabled="{!If(searchClicked,false,true)}" action="{!first}" value="First"> </apex:commandbutton>
+            <apex:commandbutton disabled="{!If(searchClicked,false,true)}" action="{!previous}" value="previous"></apex:commandbutton>
+            <apex:commandbutton disabled="{!If(searchClicked,false,true)}" action="{!next}" value="Next"></apex:commandbutton>
+            <apex:commandbutton disabled="{!If(searchClicked,false,true)}" action="{!last}" value="Last"></apex:commandbutton>            
+       </apex:panelGrid>
+        </apex:pageblock>
+    </apex:form>
+</apex:page>

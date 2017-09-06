@@ -1,0 +1,18 @@
+<apex:page standardController="Student__c" title="myPdfPage" extensions="StudentPdfController">
+   <apex:form >
+  <apex:pageBlock title="Student Details">
+   
+   <apex:pageBlockSection > 
+   	<apex:outputText >Name: {!Student__c.Name}</apex:outputText> 
+   	<apex:outputText >Class: {!Student__c.Class__r.Name}</apex:outputText> 
+       <apex:outputText >Sex: {!Student__c.Sex__c}</apex:outputText> 
+       <apex:outputText >Age: {!Student__c.Age__c}</apex:outputText> 
+       
+   </apex:pageBlockSection>
+   <apex:pageBlockButtons >
+      <apex:commandButton action="{!attach}" value="generate and save pdf" />
+   </apex:pageBlockButtons>
+ </apex:pageBlock>
+       </apex:form>
+   
+</apex:page>

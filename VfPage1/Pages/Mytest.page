@@ -1,0 +1,13 @@
+<apex:page standardController="Contact" extensions="myTest" >
+    <apex:pageBlock >
+        <div style="text-align: center; background-color: dark-grey;">
+            <div style="margin-right: 10px; height:100%;"><h1>{!con.RecordType.Name}</h1></div>
+        </div>  
+    </apex:pageBlock>
+    <apex:pageBlock >
+        <apex:pageBlockSection title="Accounts">
+            <apex:detail relatedList="true" />
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    
+</apex:page>
