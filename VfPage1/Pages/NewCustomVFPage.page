@@ -1,0 +1,23 @@
+<apex:page standardController="Opportunity" extensions="myOpportunityController" >
+    <apex:form >
+        <apex:pageBlock id="opptyDetails"  >
+            <apex:pageBlockSection columns="1" >
+                <apex:outputField value="{!Opportunity.Name}" />
+                <apex:outputField value="{!Opportunity.BillToContact__r.Name}" />
+                <apex:outputField value="{!Opportunity.Manager__r.Name}" />
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <apex:selectRadio value="{!contactName}">
+            <apex:selectOptions value="{!items}"/>
+            <p/>
+            
+        </apex:selectRadio>
+        <apex:pageBlock >
+            <apex:commandButton value="Save"  action="{!saveBillToContact}" />
+            <apex:commandButton value="Clear" action="{!clearBillToContact}"/>
+            <apex:commandButton value="Cancel" action="{!redirect}"/>
+        </apex:pageBlock>
+        
+    </apex:form>
+    
+</apex:page>
